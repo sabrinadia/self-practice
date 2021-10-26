@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Home </title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+
+</head>
+
+<body style="background-color: #F6F7FB; font-family: Poppins">
+<nav th:replace="fragments/fragment :: navbar('')"></nav>
+<br>
+
+<div class="card m-4 p-4">
+    <div class="card-body">
+        <div class="justify-content-center">
+            <div style="background-color:#857DB1; height: 80px">
+                <br>
+                <h2 style="text-align: center; color: white;">Detail Anggota</h2>
+            </div>
+            <br>
+            <p th:text="'NIA : ' +  ${anggota.nia}"></p>
+            <p th:text="'Nama : ' + ${anggota.nama}"></p>
+            <p th:if="${anggota.jenisKelamin} == 1">Jenis Kelamin : Laki-Laki</p>
+            <p th:if="${anggota.jenisKelamin} == 2">Jenis Kelamin : Perempuan</p>
+            <p th:text="'Nomor Telepon : ' + ${anggota.nomorHp}"></p>
+            <p th:text="'Tanggal Lahir : ' + ${anggota.tanggalLahir}">
+            <p th:text="'Pekerjaan : ' + ${anggota.pekerjaan}"></p>
+            <p th:if="${anggota.Status} == 1">Status : 1</p>
+            <p th:if="${anggota.Status} == 2">Status : 2</p>
+
+
+            <a class="mx-2 btn" style="background-color:#6a8cc3; color: white" th:href="@{/update/} +${anggota.idAnggota}"> Update</a>
+        </div>
+    </div>
+    <br>
+</div>
+
+
+
+
+</div>
+
+
+
+</body>
+
+
+</html>

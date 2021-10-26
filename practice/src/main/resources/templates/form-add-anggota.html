@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Home </title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+
+</head>
+
+<body style="background-color: #F6F7FB; font-family: Poppins">
+<nav th:replace="fragments/fragment :: navbar('')"></nav>
+<br>
+
+<div class="card m-4 p-4">
+    <div class="card-body">
+        <div class="justify-content-center">
+            <div style="background-color:#857DB1; height: 80px">
+                <br>
+                <h2 style="text-align: center; color: white;">Update Data Anggota</h2>
+            </div>
+            <form th:action="@{/tambah}"  method="POST">
+                <br>
+
+                NIA  : <br>
+                <input required class="form-control" type="text" name="nia" />
+                <br>
+
+                Nama  : <br>
+                <input required class="form-control" type="text" name="nama" />
+                <br>
+
+                Jenis Kelamin : <br>
+                <select name="jenisKelamin">
+                    <option value="1">Laki-Laki</option>
+                    <option value="2">Perempuan</option>
+                </select>
+                <br><br>
+
+                Tanggal Lahir : <br>
+                <input required class="form-control" type="datetime-local"  name="tanggalLahir"/>
+                <br><br>
+
+                Alamat  : <br>
+                <input required class="form-control" type="text" name="alamat" />
+                <br><br>
+
+                Pekerjaan  : <br>
+                <input required class="form-control" type="text" name="pekerjaan"/>
+                <br><br>
+
+                Status : <br>
+                <select name="status">
+                    <option value="1">Umum</option>
+                    <option value="2">Sivitas</option>
+                </select>
+                <br><br>
+
+                <button class="btn btn-primary" type="submit">Submit</button>
+
+            </form>
+
+
+
+        </div>
+    </div>
+    <br>
+</div>
+</div>
+</body>
+</html>

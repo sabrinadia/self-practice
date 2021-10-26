@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Home </title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+
+</head>
+
+<body style="background-color: #F6F7FB; font-family: Poppins">
+<nav th:replace="fragments/fragment :: navbar('')"></nav>
+<br>
+
+<div class="card m-4 p-4">
+    <div class="card-body">
+        <div class="justify-content-center">
+            <div style="background-color:#857DB1; height: 80px">
+                <br>
+                <h2 style="text-align: center; color: white;">Daftar Anggota</h2>
+            </div>
+            <br>
+            <a class="mx-2 btn" style="background-color:#6a8cc3; color: white" href="/tambah"> Tambah Anggota </a>
+            <br>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NIA</th>
+                    <th>Nama</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="ag, iterationStatus : ${listAnggota}">
+                    <td th:text="${ag.idAnggota}"></td>
+                    <td>
+                        <a th:text="${ag.nia}" th:href="@{/view/} +${ag.idAnggota}"> </a>
+                    </td>
+                    <td th:text="${ag.nama}"></td>
+                    <td th:if="${ag.jenisKelamin} == 1">Laki-Laki</td>
+                    <td th:if="${ag.jenisKelamin} == 2">Perempuan</td>
+                    <td th:text="${ag.tanggalLahir}"></td>
+                    <td th:if="${ag.status} == 1"> Umum </td>
+                    <td th:if="${ag.status} == 2"> Sivitas</td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>
+
+
+
+
+</div>
+
+
+
+</body>
+
+
+</html>
